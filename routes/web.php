@@ -23,28 +23,24 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Client subsystem
-Route::prefix('client')->name('client.')->group(function () {
+Route::prefix('client')->name('client.')->middleware(['auth', 'role:client'])->group(function () {
     Route::get('/conferences', [ClientController::class, 'index'])->name('conferences');
     Route::get('/conferences/{id}', [ClientController::class, 'show'])->name('conferences.show');
     Route::post('/conferences/{id}/register', [ClientController::class, 'register'])->name('conferences.register');
 });
 
 // Employee subsystem
-Route::prefix('employee')->name('employee.')->group(function () {
+Route::prefix('employee')->name('employee.')->middleware(['auth', 'role:employee'])->group(function () {
     Route::get('/conferences', [EmployeeController::class, 'index'])->name('conferences');
     Route::get('/conferences/{id}', [EmployeeController::class, 'show'])->name('conferences.show');
 });
 
 // Admin subsystem
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
-
-    // User management
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
-
-    // Conference management
     Route::get('/conferences', [ConferenceController::class, 'index'])->name('conferences.index');
     Route::get('/conferences/create', [ConferenceController::class, 'create'])->name('conferences.create');
     Route::post('/conferences', [ConferenceController::class, 'store'])->name('conferences.store');
