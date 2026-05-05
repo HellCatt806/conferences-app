@@ -29,5 +29,10 @@
 </div>
 
 @vite(['resources/js/app.js'])
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <div class="container">
+        <small>{{ __('messages.app_name') }} &copy; {{ date('Y') }}</small>
+    </div>
+</footer>
 </body>
 </html>
