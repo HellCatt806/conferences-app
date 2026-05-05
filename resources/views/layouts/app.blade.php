@@ -25,9 +25,16 @@
             </a>
         </div>
         <div class="d-flex align-items-center gap-3">
-            <span class="text-white">Vardenis Pavardenis</span>
-            <button class="btn btn-secondary btn-sm" disabled>{{ __('messages.logout') }}</button>
-        </div>
+    @auth
+        <span class="text-white">{{ Auth::user()->name }} {{ Auth::user()->surname }}</span>
+        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+            @csrf
+            <button type="submit" class="btn btn-secondary btn-sm">{{ __('messages.logout') }}</button>
+        </form>
+    @else
+        <a href="{{ route('login') }}" class="btn btn-secondary btn-sm">Prisijungti</a>
+    @endauth
+</div>
     </div>
 </nav>
 
