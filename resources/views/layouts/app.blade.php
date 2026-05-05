@@ -11,19 +11,27 @@
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}">{{ __('messages.app_name') }}</a>
         <div class="navbar-nav me-auto">
-            <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}">
-                {{ __('messages.nav_home') }}
-            </a>
+    <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}">
+        {{ __('messages.nav_home') }}
+    </a>
+    @auth
+        @if(Auth::user()->hasRole('client'))
             <a class="nav-link {{ request()->is('client/*') ? 'active' : '' }}" href="{{ route('client.conferences') }}">
                 {{ __('messages.nav_client') }}
             </a>
+        @endif
+        @if(Auth::user()->hasRole('employee'))
             <a class="nav-link {{ request()->is('employee/*') ? 'active' : '' }}" href="{{ route('employee.conferences') }}">
                 {{ __('messages.nav_employee') }}
             </a>
+        @endif
+        @if(Auth::user()->hasRole('admin'))
             <a class="nav-link {{ request()->is('admin/*') ? 'active' : '' }}" href="{{ route('admin.index') }}">
                 {{ __('messages.nav_admin') }}
             </a>
-        </div>
+        @endif
+    @endauth
+</div>
         <div class="d-flex align-items-center gap-3">
     @auth
         <span class="text-white">{{ Auth::user()->name }} {{ Auth::user()->surname }}</span>
