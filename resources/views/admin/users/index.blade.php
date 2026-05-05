@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('messages.nav_home') }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('messages.admin_subsystem') }}</a></li>
+        <li class="breadcrumb-item active">{{ __('messages.manage_users') }}</li>
+    </ol>
+</nav>
 <h2>{{ __('messages.manage_users') }}</h2>
 <table class="table table-bordered mt-3">
     <thead class="table-dark">

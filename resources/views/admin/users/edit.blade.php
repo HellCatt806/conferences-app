@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('messages.nav_home') }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('messages.admin_subsystem') }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">{{ __('messages.manage_users') }}</a></li>
+        <li class="breadcrumb-item active">{{ __('messages.user_edit') }}</li>
+    </ol>
+</nav>
 <h2>{{ __('messages.user_edit') }}</h2>
 <form action="{{ route('admin.users.update', 1) }}" method="POST" class="mt-3" style="max-width: 500px">
     @csrf
