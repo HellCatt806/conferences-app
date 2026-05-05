@@ -10,7 +10,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}">{{ __('messages.app_name') }}</a>
-        <div class="ms-auto d-flex align-items-center gap-3">
+        <div class="navbar-nav me-auto">
+            <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}">
+                {{ __('messages.nav_home') }}
+            </a>
+            <a class="nav-link {{ request()->is('client/*') ? 'active' : '' }}" href="{{ route('client.conferences') }}">
+                {{ __('messages.nav_client') }}
+            </a>
+            <a class="nav-link {{ request()->is('employee/*') ? 'active' : '' }}" href="{{ route('employee.conferences') }}">
+                {{ __('messages.nav_employee') }}
+            </a>
+            <a class="nav-link {{ request()->is('admin/*') ? 'active' : '' }}" href="{{ route('admin.index') }}">
+                {{ __('messages.nav_admin') }}
+            </a>
+        </div>
+        <div class="d-flex align-items-center gap-3">
             <span class="text-white">Vardenis Pavardenis</span>
             <button class="btn btn-secondary btn-sm" disabled>{{ __('messages.logout') }}</button>
         </div>
