@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', __('messages.admin_subsystem'))
 @section('content')
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">

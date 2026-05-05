@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ __('messages.app_name') }}</title>
+    <title>@yield('title', __('messages.app_name')) — {{ __('messages.app_name') }}</title>
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
 <body>

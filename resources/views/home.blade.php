@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', __('messages.home_title'))
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">

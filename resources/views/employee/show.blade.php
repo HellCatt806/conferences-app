@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', __('messages.conference_view'))
 @section('content')
 <h2>{{ __('messages.conference_view') }}</h2>
 <div class="card mt-3">

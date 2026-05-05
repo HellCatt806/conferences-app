@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', __('messages.client_subsystem'))
 @section('content')
 <h2>{{ __('messages.client_subsystem') }} — {{ __('messages.conferences') }}</h2>
 <table class="table table-bordered mt-3">

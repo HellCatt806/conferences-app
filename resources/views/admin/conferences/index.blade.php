@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', __('messages.manage_conferences'))
 @section('content')
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
