@@ -3,19 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $users = [];
+        $users = User::all();
         return view('admin.users.index', compact('users'));
     }
 
     public function edit($id)
     {
-        $user = null;
+        $user = User::findOrFail($id);
         return view('admin.users.edit', compact('user'));
     }
 
@@ -26,6 +27,8 @@ class UserController extends Controller
             'surname' => 'required',
             'email'   => 'required|email',
         ]);
+        $user = User::findOrFail($id);
+        $user->update($request->only('name', 'surname', 'email'));
         return redirect()->route('admin.users.index')->with('success', 'Naudotojas atnaujintas');
     }
 }

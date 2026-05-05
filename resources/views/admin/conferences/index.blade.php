@@ -27,9 +27,9 @@
     <tbody>
         @forelse($conferences as $conference)
             <tr>
-                <td>{{ $conference['title'] }}</td>
-                <td>{{ $conference['date'] }}</td>
-                <td>{{ $conference['address'] }}</td>
+                <td>{{ $conference->title }}</td>
+                <td>{{ $conference->date }}</td>
+                <td>{{ $conference->address }}</td>
                 <td>
                     <a href="{{ route('admin.conferences.edit', $conference['id']) }}" class="btn btn-sm btn-warning">
                         {{ __('messages.edit') }}

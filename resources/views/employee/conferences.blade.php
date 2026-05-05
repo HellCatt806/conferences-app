@@ -15,9 +15,9 @@
     <tbody>
         @forelse($conferences as $conference)
             <tr>
-                <td>{{ $conference['title'] }}</td>
-                <td>{{ $conference['date'] }}</td>
-                <td>{{ $conference['address'] }}</td>
+                <td>{{ $conference->title }}</td>
+                <td>{{ $conference->date }}</td>
+                <td>{{ $conference->address }}</td>
                 <td>
                     <a href="{{ route('employee.conferences.show', $conference['id']) }}" class="btn btn-sm btn-info">
                         {{ __('messages.conference_view') }}

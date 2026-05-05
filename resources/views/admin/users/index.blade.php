@@ -22,9 +22,9 @@
     <tbody>
         @forelse($users as $user)
             <tr>
-                <td>{{ $user['name'] }}</td>
-                <td>{{ $user['surname'] }}</td>
-                <td>{{ $user['email'] }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->surname }}</td>
+                <td>{{ $user->mail }}</td>
                 <td>
                     <a href="{{ route('admin.users.edit', $user['id']) }}" class="btn btn-sm btn-warning">
                         {{ __('messages.edit') }}

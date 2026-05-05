@@ -5,12 +5,12 @@
 <h2>{{ __('messages.conference_view') }}</h2>
 <div class="card mt-3">
     <div class="card-body">
-        <p><strong>{{ __('messages.conference_title') }}:</strong> -</p>
-        <p><strong>{{ __('messages.conference_description') }}:</strong> -</p>
-        <p><strong>{{ __('messages.conference_lecturers') }}:</strong> -</p>
-        <p><strong>{{ __('messages.conference_date') }}:</strong> -</p>
-        <p><strong>{{ __('messages.conference_time') }}:</strong> -</p>
-        <p><strong>{{ __('messages.conference_address') }}:</strong> -</p>
+        <p><strong>{{ __('messages.conference_title') }}:</strong> {{ $conference->title }}</p>
+		<p><strong>{{ __('messages.conference_description') }}:</strong> {{ $conference->description }}</p>
+		<p><strong>{{ __('messages.conference_lecturers') }}:</strong> {{ $conference->lecturers }}</p>
+		<p><strong>{{ __('messages.conference_date') }}:</strong> {{ $conference->date }}</p>
+		<p><strong>{{ __('messages.conference_time') }}:</strong> {{ $conference->time }}</p>
+		<p><strong>{{ __('messages.conference_address') }}:</strong> {{ $conference->address }}</p>
     </div>
 </div>
 <h4 class="mt-4">{{ __('messages.registered_clients') }}</h4>
@@ -25,9 +25,9 @@
     <tbody>
         @forelse($registeredClients as $client)
             <tr>
-                <td>{{ $client['name'] }}</td>
-                <td>{{ $client['surname'] }}</td>
-                <td>{{ $client['email'] }}</td>
+                <td>{{ $client->name }}</td>
+                <td>{{ $client->surname }}</td>
+                <td>{{ $client->email }}</td>
             </tr>
         @empty
             <tr><td colspan="3" class="text-center">Užsiregistravusių nėra</td></tr>
